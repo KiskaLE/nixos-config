@@ -92,16 +92,18 @@
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-   vscode google-chrome git 
+    google-chrome  obsidian steam mailspring bitwarden-desktop
+
+    # DEV
+    sqlitebrowser vscode git nodejs_22 yarn docker
+
+    # Shell
+    lf curl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
