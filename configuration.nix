@@ -11,6 +11,16 @@
       inputs.home-manager.nixosModules.default
     ];
 
+  # Garbage colection
+  nix = {
+    settings.auto-optimise-store = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+  };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -116,7 +126,7 @@
     sqlitebrowser vscode git nodejs_22 yarn docker
 
     # Shell
-    lf curl oh-my-posh
+    lf curl oh-my-posh kitty neofetch
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
