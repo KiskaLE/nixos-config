@@ -95,9 +95,12 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Enable steam
+  programs.steam.enable=true;
+
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    google-chrome  obsidian steam mailspring bitwarden-desktop
+    google-chrome  obsidian mailspring bitwarden-desktop
 
     # DEV
     sqlitebrowser vscode git nodejs_22 yarn docker
