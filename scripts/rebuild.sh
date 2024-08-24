@@ -1,3 +1,3 @@
 #! /usr/bin/env nix-shell
 #! nix-shell -i bash -p bash
-sudo nixos-rebuild switch --flake ./../#default
+sudo nixos-rebuild switch --flake /home/nixos/nixos#default

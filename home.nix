@@ -14,6 +14,11 @@
     userEmail = "vojtakylar@seznam.cz";
   };
 
+  programs.bash = {
+    enable = true;
+    shellAliases = {ll = "ls -l"; ".." = "cd .."; fr = "sh /home/nixos/nixos/scripts/rebuild.sh";};
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
