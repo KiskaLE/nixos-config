@@ -102,6 +102,11 @@
   # Enable steam
   programs.steam.enable=true;
 
+  # Enable fonts
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Meslo" ]; })
+  ];
+
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     google-chrome  obsidian mailspring bitwarden-desktop
@@ -111,7 +116,7 @@
     sqlitebrowser vscode git nodejs_22 yarn docker
 
     # Shell
-    lf curl
+    lf curl oh-my-posh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

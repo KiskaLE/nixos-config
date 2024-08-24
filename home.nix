@@ -19,6 +19,11 @@
     shellAliases = {ll = "ls -l"; ".." = "cd .."; fr = "sh /home/nixos/nixos/scripts/rebuild.sh";};
   };
 
+  programs.oh-my-posh = {
+    enable = true;
+    settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile "${pkgs.oh-my-posh}/share/oh-my-posh/themes/hul10.omp.json"));
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
