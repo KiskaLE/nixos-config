@@ -105,6 +105,7 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     google-chrome  obsidian mailspring bitwarden-desktop
+    thunderbird
 
     # DEV
     sqlitebrowser vscode git nodejs_22 yarn docker
