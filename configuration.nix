@@ -76,6 +76,9 @@
   # Enable docker
   virtualisation.docker.enable = true;
 
+  # Enable gnome keyring for mailspring
+  gnome-keyring.enable = true;
+
   # Enable virtualization
   virtualisation.libvirtd = {
   enable = true;
