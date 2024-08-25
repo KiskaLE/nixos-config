@@ -117,7 +117,7 @@
   users.users.nixos = {
     isNormalUser = true;
     description = "nixos";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
