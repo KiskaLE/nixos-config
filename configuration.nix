@@ -144,7 +144,7 @@
     thunderbird bambu-studio
 
     # DEV
-    sqlitebrowser vscode git nodejs_22 yarn direnv
+    sqlitebrowser vscode git nodejs_22 yarn nix-direnv
 
     # Shell
     lf curl oh-my-posh kitty neofetch
