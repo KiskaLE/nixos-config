@@ -73,6 +73,9 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # Enable docker
+  virtualisation.docker.enable = true;
+
   # Enable virtualization
   virtualisation.libvirtd = {
   enable = true;
@@ -141,7 +144,7 @@
     thunderbird
 
     # DEV
-    sqlitebrowser vscode git nodejs_22 yarn docker
+    sqlitebrowser vscode git nodejs_22 yarn
 
     # Shell
     lf curl oh-my-posh kitty neofetch
