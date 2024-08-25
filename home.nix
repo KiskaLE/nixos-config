@@ -20,7 +20,7 @@
 
   programs.bash = {
     enable = true;
-    shellInit = ''eval "$(direnv hook bash)"'';
+    shellInit = "eval '$(direnv hook bash)'";
     shellAliases = {
       ll = "ls -l"; ".." = "cd .."; 
       fr = "sh /home/nixos/nixos/scripts/rebuild.sh";
