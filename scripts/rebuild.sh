@@ -12,6 +12,5 @@ fi
 echo "NixOS Rebuilding..."
 
 sudo nixos-rebuild switch --flake /home/nixos/nixos#default
-gen=$(nixos-rebuild list-generations | grep current)
-git commit -am "$gen"
+gen=$(nixos-rebuild list-generations | grep current) && git commit -am "$gen"
 popd
