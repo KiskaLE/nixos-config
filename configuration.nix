@@ -76,8 +76,6 @@
   # Enable docker
   virtualisation.docker.enable = true;
 
-  # Enable gnome keyring for mailspring
-  gnome-keyring.enable = true;
 
   # Enable virtualization
   virtualisation.libvirtd = {
@@ -143,8 +141,8 @@
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    google-chrome  obsidian mailspring bitwarden-desktop
-    bluemail bambu-studio
+    google-chrome  obsidian bitwarden-desktop
+    bambu-studio gnome.geary
 
     # DEV
     sqlitebrowser vscode git nodejs_22 yarn direnv
