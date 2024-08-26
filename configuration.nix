@@ -21,6 +21,8 @@
     };
   };
 
+  home-manager.backupFileExtension = "hm-backup";
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
