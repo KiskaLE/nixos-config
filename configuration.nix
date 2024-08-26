@@ -76,6 +76,9 @@
   # Enable docker
   virtualisation.docker.enable = true;
 
+  # Enable logitech wireless
+  hardware.logitech.wireless.enable = true;
+
 
   # Enable virtualization
   virtualisation.libvirtd = {
@@ -142,7 +145,7 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     google-chrome  obsidian bitwarden-desktop
-    bambu-studio gnome.geary
+    bambu-studio gnome.geary solaar
 
     # DEV
     sqlitebrowser vscode git nodejs_22 yarn direnv
