@@ -161,7 +161,7 @@
     lf curl oh-my-posh kitty neofetch
 
     # Hyprland
-    rofi-wayland hyprlock waybar swww pamixer
+    rofi-wayland hyprlock waybar swww pamixer swaynotificationcenter cinnamon.nemo
 
   ];
 

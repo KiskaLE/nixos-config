@@ -116,6 +116,7 @@
       };
     };
   };
+  
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -168,7 +169,7 @@
         "$mod,l,exec,hyprlock"
         "$mod,s,exec,[floating] rofi -show drun"
         "$mod,c,exec,code"
-        "$mod,b,exec,dolphin"
+        "$mod,b,exec,nemo"
         "$mod,Return,exec,kitty"
         "$mod SHIFT,W,exec,web-search"
         "$mod ALT,W,exec,wallsetter"
