@@ -220,7 +220,9 @@
         "ALT,Tab,cyclenext"
         "ALT,Tab,cyclenext"
         # audio
-        
+        ",code:122,exec,pamixer -d 2"
+        ",code:123,exec,pamixer -i 2"
+        ",code:172,exec,pamixer -t"
       ];
 
       binde = [
