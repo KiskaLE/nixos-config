@@ -53,6 +53,25 @@
     };
   };
 
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      general = {
+        grace = 300;
+        hide_cursor = true;
+      };
+      background = {
+        blur_passes = 2;
+        blur_size = 7;
+        noise = 0.0117;
+        contrast = 0.8916;
+        brightness = 0.8172;
+        vibrancy = 0.1696;
+        vibrancy_darkness = 0.0;
+      };
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -83,6 +102,7 @@
       ];
 
       bind = [
+        "$mod,l,exec,hyprlock"
         "$mod,s,exec,[floating] rofi -show drun"
         "$mod,c,exec,code"
         "$mod,b,exec,dolphin"

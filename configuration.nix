@@ -159,7 +159,7 @@
     lf curl oh-my-posh kitty neofetch
 
     # Hyprland
-    rofi-wayland
+    rofi-wayland hyprlock
 
   ];
 
