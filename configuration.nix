@@ -55,6 +55,9 @@
     LC_TIME = "cs_CZ.UTF-8";
   };
 
+  # Enable Hyprland
+  programs.hyprland.enable = true;
+
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
@@ -154,6 +157,10 @@
 
     # Shell
     lf curl oh-my-posh kitty neofetch
+
+    # Hyprland
+    rofi-wayland
+
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
