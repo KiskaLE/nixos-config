@@ -87,6 +87,36 @@
     };
   };
 
+  programs.waybar = {
+    enable = true;
+    settings = {
+      mainBar = {
+        layer = "top";
+        position = "top";
+        height = 30;
+        modules-left = ["hyprland/workspaces"];
+        modules-center = ["clock"];
+        modules-right = [];
+
+        "clock" = {
+          format = "{:%a %d.%m %H:%M}";
+        };
+
+        "hyprland/workspaces" = {
+          format = "{name}";
+          format-icons = {
+            default = " ";
+            active = " ";
+            urgent = " ";
+          };
+          on-scroll-up = "hyprctl dispatch workspace e+1";
+          on-scroll-down = "hyprctl dispatch workspace e-1";
+        };
+
+      };
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -103,8 +133,24 @@
         "DP-3, 1920x1080@144, 0x-480, 1, transform, 3"
       ];
 
+      env = [
+        "NIXOS_OZONE_WL, 1"
+        "NIXPKGS_ALLOW_UNFREE, 1"
+        "XDG_CURRENT_DESKTOP, Hyprland"
+        "XDG_SESSION_TYPE, wayland"
+        "XDG_SESSION_DESKTOP, Hyprland"
+        "GDK_BACKEND, wayland, x11"
+        "CLUTTER_BACKEND, wayland"
+        "QT_QPA_PLATFORM=wayland;xcb"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
+        "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
+        "SDL_VIDEODRIVER, x11"
+        "MOZ_ENABLE_WAYLAND, 1"
+      ];
+
       exec-once = [
         "thunderbird"
+        "killall -q waybar;sleep .5 && waybar"
       ];
 
       "$mod" = "SUPER";
