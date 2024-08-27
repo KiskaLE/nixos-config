@@ -162,7 +162,7 @@
 
     # Hyprland
     rofi-wayland hyprlock waybar swww pamixer swaynotificationcenter cinnamon.nemo
-
+    gvfs
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
