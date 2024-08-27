@@ -38,6 +38,21 @@
     theme = "Hardcore";
   };
 
+  programs.rofi = {
+    enable = true;
+    location = "center";
+    extraConfig = {
+      modi = "drun,filebrowser,run";
+      show-icons = true;
+      icon-theme = "Papirus";
+      location = 0;
+      drun-display-format = "{icon} {name}";
+      display-drun = " Apps";
+      display-run = " Run";
+      display-filebrowser = " File";
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -53,12 +68,6 @@
             accel_profile = "flat";
       };
 
-      windowrule = [
-        "float, class:^(rofi-wayland)$"
-        "noborder,^(rofi-wayland)$"
-        "center,^(rofi-wayland)$"
-      ];
-
       "$mod" = "SUPER";
 
       bindm = [
@@ -69,7 +78,7 @@
       ];
 
       bind = [
-        "$mod,s,exec,rofi-wayland -show drun"
+        "$mod,s,exec,[floating] rofi -show drun"
         "$mod,Return,exec,kitty"
         "$mod SHIFT,W,exec,web-search"
         "$mod ALT,W,exec,wallsetter"
