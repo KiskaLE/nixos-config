@@ -96,7 +96,7 @@
         height = 30;
         modules-left = ["hyprland/workspaces"];
         modules-center = ["clock"];
-        modules-right = ["custom/pipewire"];
+        modules-right = ["custom/pipewire" "custom/sound"];
 
         "clock" = {
           format = "{:%a %d.%m %H:%M}";
@@ -111,6 +111,15 @@
           };
           on-scroll-up = "hyprctl dispatch workspace e+1";
           on-scroll-down = "hyprctl dispatch workspace e-1";
+        };
+
+        "custom/sound" = {
+          restart-interval = 1;
+          format = "󰓃 {}%";
+          exec = "pamixer --get-volume";
+          exec-on-event = true;
+          on-scroll-up = "pamixer -i 5";
+          on-scroll-down = "pamixer -d 5";
         };
 
       };
