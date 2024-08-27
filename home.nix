@@ -96,7 +96,7 @@
         height = 30;
         modules-left = ["hyprland/workspaces"];
         modules-center = ["clock"];
-        modules-right = [];
+        modules-right = ["custom/pipewire"];
 
         "clock" = {
           format = "{:%a %d.%m %H:%M}";
@@ -219,6 +219,12 @@
         "$mod,mouse_up,workspace, e-1"
         "ALT,Tab,cyclenext"
         "ALT,Tab,cyclenext"
+        # audio
+        
+      ];
+
+      binde = [
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ];
     };
   };
