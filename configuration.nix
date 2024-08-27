@@ -21,6 +21,8 @@
     };
   };
 
+
+  
   home-manager.backupFileExtension = "hm-backup";
 
   # Bootloader.
@@ -159,7 +161,7 @@
     lf curl oh-my-posh kitty neofetch
 
     # Hyprland
-    rofi-wayland hyprlock waybar
+    rofi-wayland hyprlock waybar swww
 
   ];
 

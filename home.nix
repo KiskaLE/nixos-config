@@ -150,7 +150,9 @@
 
       exec-once = [
         "thunderbird"
+        "killall -q swww;sleep .5 && swww init"
         "killall -q waybar;sleep .5 && waybar"
+        "swww img /home/nixos/Wallpapers/gamecard.jpg"
       ];
 
       "$mod" = "SUPER";
