@@ -147,7 +147,7 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     google-chrome  obsidian bitwarden-desktop
-    bambu-studio gnome.geary solaar
+    bambu-studio solaar thunderbird
 
     # DEV
     sqlitebrowser vscode git nodejs_22 yarn direnv
