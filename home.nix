@@ -56,17 +56,22 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      decoration = {
-        shadow_offset = "0 5";
-        "col.shadow" = "rgba(00000099)";
-      };
-
+      
       input = {
             kb_layout = "cz";
             follow_mouse = 1;
             sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
             accel_profile = "flat";
       };
+
+      monitor = [
+        "DP-1, 2560x1080@200, 1080x0, 1"
+        "DP-3, 1920x1080@144, 0x-480, 1, transform, 3"
+      ];
+
+      exec-once = [
+        "thunderbird"
+      ];
 
       "$mod" = "SUPER";
 
@@ -79,6 +84,8 @@
 
       bind = [
         "$mod,s,exec,[floating] rofi -show drun"
+        "$mod,c,exec,code"
+        "$mod,b,exec,dolphin"
         "$mod,Return,exec,kitty"
         "$mod SHIFT,W,exec,web-search"
         "$mod ALT,W,exec,wallsetter"
@@ -86,7 +93,6 @@
         "$mod,W,exec,google-chrome-stable"
         "$mod,E,exec,emopicker9000"
         "$mod SHIFT,S,exec,screenshootin"
-        "$mod,C,exec,hyprpicker -a"
         "$mod,Q,killactive,"
         "$mod SHIFT,I,togglesplit,"
         "$mod,F,fullscreen,"
@@ -100,30 +106,30 @@
         "$mod SHIFT,l,movewindow,r"
         "$mod SHIFT,k,movewindow,u"
         "$mod SHIFT,j,movewindow,d"
+        "$mod,m,exec,hyprctl dispatch exit"
         # Workspaces
-        "$mod,1,workspace,1"
-        "$mod,2,workspace,2"
-        "$mod,3,workspace,3"
-        "$mod,3,workspace,3"
-        "$mod,4,workspace,4"
-        "$mod,5,workspace,5"
-        "$mod,6,workspace,6"
-        "$mod,7,workspace,7"
-        "$mod,8,workspace,8"
-        "$mod,9,workspace,9"
-        "$mod,0,workspace,10"
+        "$mod,code:10,workspace,1"
+        "$mod,code:11,workspace,2"
+        "$mod,code:12,workspace,3"
+        "$mod,code:13,workspace,4"
+        "$mod,code:14,workspace,5"
+        "$mod,code:15,workspace,6"
+        "$mod,code:16,workspace,7"
+        "$mod,code:17,workspace,8"
+        "$mod,code:18,workspace,9"
+        "$mod,code:19,workspace,10"
         "$mod SHIFT,SPACE,movetoworkspace,special"
         "$mod,SPACE,togglespecialworkspace"
-        "$mod SHIFT,1,movetoworkspace,1"
-        "$mod SHIFT,2,movetoworkspace,2"
-        "$mod SHIFT,3,movetoworkspace,3"
-        "$mod SHIFT,4,movetoworkspace,4"
-        "$mod SHIFT,5,movetoworkspace,5"
-        "$mod SHIFT,6,movetoworkspace,6"
-        "$mod SHIFT,7,movetoworkspace,7"
-        "$mod SHIFT,8,movetoworkspace,8"
-        "$mod SHIFT,9,movetoworkspace,9"
-        "$mod SHIFT,0,movetoworkspace,10"
+        "$mod SHIFT,code:10,movetoworkspace,1"
+        "$mod SHIFT,code:11,movetoworkspace,2"
+        "$mod SHIFT,code:12,movetoworkspace,3"
+        "$mod SHIFT,code:13,movetoworkspace,4"
+        "$mod SHIFT,code:14,movetoworkspace,5"
+        "$mod SHIFT,code:15,movetoworkspace,6"
+        "$mod SHIFT,code:16,movetoworkspace,7"
+        "$mod SHIFT,code:17,movetoworkspace,8"
+        "$mod SHIFT,code:18,movetoworkspace,9"
+        "$mod SHIFT,code:19,movetoworkspace,10"
         "$mod CONTROL,right,workspace,e+1"
         "$mod CONTROL,left,workspace,e-1"
         "$mod,mouse_down,workspace, e+1"
