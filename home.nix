@@ -93,10 +93,10 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 30;
+        height = 20;
         modules-left = ["hyprland/workspaces"];
         modules-center = ["clock"];
-        modules-right = ["network" "custom/sound"];
+        modules-right = [ "network" "pulseaudio" ];
 
         "clock" = {
           format = "{:%a %d.%m %H:%M}";
@@ -123,6 +123,21 @@
           on-click = "pavucontrol";
         };
 
+        "pulseaudio" = {
+          format = "{icon}  {volume}%";
+          format-bluetooth = "{icon}  {volume}%";
+          format-muted = " ";
+          format-icons = {
+              headphone = " ";
+              phone = " ";
+              portable = " ";
+              car = " ";
+              default = [" " " "];
+          };
+          scroll-step = 5;
+          on-click = "pavucontrol";
+        };
+
         "network" = {
           format-disconnected = "󰲜";
           format-ethernet = "󰲝";
@@ -131,6 +146,88 @@
 
       };
     };
+    style = 
+      ''
+        * {
+          font-size: 12px;
+          font-family: "Terminus (TTF)";
+        }
+
+        #workspaces {
+          margin: 3px 3px;
+          padding: 0px 5px;
+          background: #121212;
+          border-radius: 10px;
+        }
+
+        #workspaces button {
+          padding: 2px;
+        }
+
+        #workspaces button.active {
+          color: #F00;
+        }
+      
+
+        window#waybar {
+          background: rgba(0,0,0,0);
+        }
+
+        #custom-quit {
+          margin: 3px 3px 3px 0px;
+          padding: 5px 7px 5px 5px;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+          border-right: 2px solid #121212; /* Changed border color */
+          border-top: 2px solid #121212; /* Changed border color */
+          border-bottom: 2px solid #121212; /* Changed border color */
+          background: #F00; /* Kept red background */
+          color: #FFF;
+        }
+
+        #clock {
+          margin: 3px 0px 3px 3px;
+          padding: 5px 7px;
+          color: #c5c8c6; /* Ensured text color consistency */
+          background: #121212; /* Changed background color */
+          border-radius: 10px;
+        }
+
+        #custom-keyboard {
+          background: #121212; /* Changed background color */
+          color: #c5c8c6;
+          padding: 5px 5px 5px 7px;
+          margin: 3px 0px 3px 3px;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
+
+        #custom-media {
+          margin: 3px;
+          padding: 5px 7px 5px 7px;
+          border-radius: 10px;
+          background: #121212; /* Changed background color */
+          color: #c5c8c6;
+        }
+
+        #pulseaudio {
+          margin: 3px 3px 3px 0px;
+          padding: 5px 7px 5px 5px;
+          background: #121212; /* Changed background color */
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+          color: #c5c8c6;
+        }
+
+        #network {
+          background: #121212; /* Changed background color */
+          color: #c5c8c6;
+          margin: 3px 0px 3px 0px;
+          padding: 5px 5px 4px 7px;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
+      '';
   };
 
   gtk.cursorTheme = {
@@ -146,7 +243,7 @@
       
       input = {
             kb_layout = "cz";
-            follow_mouse = 1;
+            follow_mouse = -1;
             sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
             accel_profile = "flat";
       };
