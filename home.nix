@@ -96,7 +96,7 @@
         height = 20;
         modules-left = ["hyprland/workspaces"];
         modules-center = ["clock"];
-        modules-right = [ "network" "pulseaudio" ];
+        modules-right = [ "network" "pulseaudio" "custom/quit" ];
 
         "clock" = {
           format = "{:%a %d.%m %H:%M}";
@@ -144,12 +144,17 @@
           on-click = "nm-connection-editor";
         };
 
+        "custom/quit" = {
+          format = "󰿅";
+          on-click = "wlogout";
+        };
+
       };
     };
     style = 
       ''
         * {
-          font-size: 12px;
+          font-size: 13px;
           font-family: "Terminus (TTF)";
         }
 
@@ -175,19 +180,19 @@
 
         #custom-quit {
           margin: 3px 3px 3px 0px;
-          padding: 5px 7px 5px 5px;
+          padding: 5px 12px 5px 10px;
           border-top-right-radius: 10px;
           border-bottom-right-radius: 10px;
-          border-right: 2px solid #121212; /* Changed border color */
-          border-top: 2px solid #121212; /* Changed border color */
-          border-bottom: 2px solid #121212; /* Changed border color */
-          background: #F00; /* Kept red background */
+          border-right: 2px solid rgb(145.63, 32.03, 36.82); /* Changed border color */
+          border-top: 2px solid rgb(145.63, 32.03, 36.82); /* Changed border color */
+          border-bottom: 2px solid rgb(145.63, 32.03, 36.82); /* Changed border color */
+          background: rgb(145.63, 32.03, 36.82); /* Kept red background */
           color: #FFF;
         }
 
         #clock {
           margin: 3px 0px 3px 3px;
-          padding: 5px 7px;
+          padding: 5px 12px;
           color: #c5c8c6; /* Ensured text color consistency */
           background: #121212; /* Changed background color */
           border-radius: 10px;
@@ -214,8 +219,8 @@
           margin: 3px 3px 3px 0px;
           padding: 5px 7px 5px 5px;
           background: #121212; /* Changed background color */
-          border-top-right-radius: 10px;
-          border-bottom-right-radius: 10px;
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 0px;
           color: #c5c8c6;
         }
 
@@ -223,19 +228,12 @@
           background: #121212; /* Changed background color */
           color: #c5c8c6;
           margin: 3px 0px 3px 0px;
-          padding: 5px 5px 4px 7px;
+          padding: 5px 5px 4px 12px;
           border-top-left-radius: 10px;
           border-bottom-left-radius: 10px;
         }
       '';
   };
-
-  gtk.cursorTheme = {
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
-    size = 22;
-  };
-  
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -273,7 +271,7 @@
         "systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "killall -q swww;sleep .5 && swww init"
         "killall -q waybar;sleep .5 && waybar"
-        "swww img /home/nixos/Wallpapers/gamecard.jpg"
+        "swww restore"
         "exec-once = nm-applet --indicator"
         "thunderbird"
       ];
@@ -281,6 +279,11 @@
       windowrule = [
         "float, nm-connection-editor|blueman-manager"
         "float, swayimg|Viewnior|pavucontrol"
+      ];
+
+      windowrulev2 = [
+        "opacity 0.8 0.8, class:^(kitty)$"
+        "opacity 0.85 0.85, class:^(Code)$"
       ];
 
       "$mod" = "SUPER";
@@ -317,7 +320,7 @@
         "$mod SHIFT,l,movewindow,r"
         "$mod SHIFT,k,movewindow,u"
         "$mod SHIFT,j,movewindow,d"
-        "$mod,m,exec,hyprctl dispatch exit"
+        "$mod,m,exec,wlogout"
         # Workspaces
         "$mod,code:10,workspace,1"
         "$mod,code:11,workspace,2"
@@ -358,31 +361,40 @@
     };
     extraConfig = 
       ''
+        general {
+          gaps_in = 6
+          gaps_out = 8
+          border_size = 2
+          layout = dwindle
+          resize_on_border = true
+        }
+
+
         animations {
-            enabled = yes
-            bezier = wind, 0.05, 0.9, 0.1, 1
-            bezier = winIn, 0.1, 1, 0.1, 1
-            bezier = winOut, 0.3, -0.3, 0, 1
-            bezier = liner, 1, 1, 1, 1
-            animation = windows, 1, 6, wind, slide
-            animation = windowsIn, 1, 6, winIn, slide
-            animation = windowsOut, 1, 5, winOut, slide
-            animation = windowsMove, 1, 5, wind, slide
-            animation = border, 1, 1, liner
-            animation = fade, 1, 10, default
-            animation = workspaces, 1, 5, wind
-          }
+          enabled = yes
+          bezier = wind, 0.05, 0.9, 0.1, 1
+          bezier = winIn, 0.1, 1, 0.1, 1
+          bezier = winOut, 0.3, -0.3, 0, 1
+          bezier = liner, 1, 1, 1, 1
+          animation = windows, 1, 6, wind, slide
+          animation = windowsIn, 1, 6, winIn, slide
+          animation = windowsOut, 1, 5, winOut, slide
+          animation = windowsMove, 1, 5, wind, slide
+          animation = border, 1, 1, liner
+          animation = fade, 1, 10, default
+          animation = workspaces, 1, 5, wind
+        }
 
         decoration {
-            rounding = 5
-            blur {
-                enabled = true
-                size = 5
-                passes = 3
-                new_optimizations = on
-                ignore_opacity = off
-            }
+          rounding = 5
+          blur {
+              enabled = true
+              size = 5
+              passes = 3
+              new_optimizations = on
+              ignore_opacity = off
           }
+        }
 
       '';
   };
