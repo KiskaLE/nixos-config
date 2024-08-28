@@ -25,6 +25,7 @@
   
   home-manager.backupFileExtension = "hm-backup";
 
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -60,13 +61,15 @@
   # Enable Hyprland
   programs.hyprland.enable = true;
 
+  services.gnome.gnome-keyring.enable = true;
+
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # services.displayManager.sddm.enable = true;
+  # services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -162,7 +165,8 @@
 
     # Hyprland
     rofi-wayland hyprlock waybar swww pamixer swaynotificationcenter cinnamon.nemo
-    gvfs pulseaudio unzip unrar networkmanagerapplet pavucontrol
+    gvfs pulseaudio unzip unrar networkmanagerapplet pavucontrol bibata-cursors gnome.gnome-keyring
+    gnome.seahorse
 
   ];
 
