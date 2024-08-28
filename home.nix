@@ -243,7 +243,7 @@
       
       input = {
             kb_layout = "cz";
-            follow_mouse = -1;
+            follow_mouse = 1;
             sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
             accel_profile = "flat";
       };
@@ -343,13 +343,12 @@
         "$mod SHIFT,code:19,movetoworkspace,10"
         "$mod CONTROL,right,workspace,e+1"
         "$mod CONTROL,left,workspace,e-1"
-        "$mod,mouse_down,workspace, e+1"
-        "$mod,mouse_up,workspace, e-1"
-        "ALT,Tab,cyclenext"
+        "$mod,mouse_down,workspace,+1"
+        "$mod,mouse_up,workspace,-1"
         "ALT,Tab,cyclenext"
         # audio
-        ",code:122,exec,pamixer -d 2"
-        ",code:123,exec,pamixer -i 2"
+        ",code:122,exec,pamixer -d 4"
+        ",code:123,exec,pamixer -i 4"
         ",code:172,exec,pamixer -t"
       ];
 

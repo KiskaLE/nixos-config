@@ -166,7 +166,8 @@
     # Hyprland
     rofi-wayland hyprlock waybar swww pamixer swaynotificationcenter cinnamon.nemo
     gvfs pulseaudio unzip unrar networkmanagerapplet pavucontrol bibata-cursors gnome.gnome-keyring
-    gnome.seahorse
+    gnome.seahorse cinnamon.nemo-fileroller
+
 
   ];
 
