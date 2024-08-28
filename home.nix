@@ -218,7 +218,7 @@
         }
 
         #pulseaudio {
-          margin: 3px 3px 3px 0px;
+          margin: 3px 0px 3px 0px;
           padding: 5px 7px 5px 5px;
           background: #121212; /* Changed background color */
           border-top-right-radius: 0px;
