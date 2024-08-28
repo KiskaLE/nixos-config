@@ -162,7 +162,8 @@
 
     # Hyprland
     rofi-wayland hyprlock waybar swww pamixer swaynotificationcenter cinnamon.nemo
-    gvfs
+    gvfs pulseaudio unzip unrar networkmanagerapplet pavucontrol
+
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

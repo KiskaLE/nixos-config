@@ -96,7 +96,7 @@
         height = 30;
         modules-left = ["hyprland/workspaces"];
         modules-center = ["clock"];
-        modules-right = ["custom/pipewire" "custom/sound"];
+        modules-right = ["network" "custom/sound"];
 
         "clock" = {
           format = "{:%a %d.%m %H:%M}";
@@ -115,11 +115,18 @@
 
         "custom/sound" = {
           restart-interval = 1;
-          format = "󰓃 {}%";
+          format = " 󰓃 {}% ";
           exec = "pamixer --get-volume";
           exec-on-event = true;
           on-scroll-up = "pamixer -i 5";
           on-scroll-down = "pamixer -d 5";
+          on-click = "pavucontrol";
+        };
+
+        "network" = {
+          format-disconnected = "󰲜";
+          format-ethernet = "󰲝";
+          on-click = "nm-connection-editor";
         };
 
       };
@@ -159,10 +166,18 @@
       ];
 
       exec-once = [
-        "thunderbird"
+        "dbus-update-activation-environment --systemd --all"
+        "systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "killall -q swww;sleep .5 && swww init"
         "killall -q waybar;sleep .5 && waybar"
         "swww img /home/nixos/Wallpapers/gamecard.jpg"
+        "exec-once = nm-applet --indicator"
+        "thunderbird"
+      ];
+
+      windowrule = [
+        "float, nm-connection-editor|blueman-manager"
+        "float, swayimg|Viewnior|pavucontrol"
       ];
 
       "$mod" = "SUPER";
