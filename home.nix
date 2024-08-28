@@ -87,6 +87,8 @@
     };
   };
 
+  gtk.iconTheme = ''Bibata-Modern-Ice'';
+
   programs.waybar = {
     enable = true;
     settings = {
@@ -264,6 +266,7 @@
         "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
         "SDL_VIDEODRIVER, x11"
         "MOZ_ENABLE_WAYLAND, 1"
+        "XCURSOR_SIZE, 22"
       ];
 
       exec-once = [
@@ -272,7 +275,8 @@
         "killall -q swww;sleep .5 && swww init"
         "killall -q waybar;sleep .5 && waybar"
         "swww restore"
-        "exec-once = nm-applet --indicator"
+        "nm-applet --indicator"
+        "hyprctl setcursor Bibata-Modern-Ice 22"
         "thunderbird"
       ];
 
