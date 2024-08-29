@@ -36,11 +36,15 @@
   programs.kitty = {
     enable = true;
     theme = "Hardcore";
+    extraConfig = 
+      ''
+        term xterm-256color
+      '';
   };
 
   programs.rofi = {
     enable = true;
-    location = "center";
+    package = pkgs.rofi-wayland;
     extraConfig = {
       modi = "drun,filebrowser,run";
       show-icons = true;
@@ -51,6 +55,14 @@
       display-run = " Run";
       display-filebrowser = " File";
     };
+    theme =
+      let
+        inherit (config.lib.formats.rasi) mkLiteral;
+      in {
+        "*" = {
+          bg = mkLiteral "#212121F2";
+        };
+      };
   };
 
   programs.hyprlock = {
