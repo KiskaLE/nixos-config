@@ -20,7 +20,10 @@
 
   programs.bash = {
     enable = true;
-    bashrcExtra = ''eval "$(direnv hook bash)"'';
+    bashrcExtra = ''
+      eval "$(direnv hook bash)"
+      neofetch
+    '';
     shellAliases = {
       ll = "ls -l"; ".." = "cd .."; 
       fr = "sh /home/nixos/nixos/scripts/rebuild.sh";
@@ -30,14 +33,16 @@
 
   programs.oh-my-posh = {
     enable = true;
-    settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile "${pkgs.oh-my-posh}/share/oh-my-posh/themes/hul10.omp.json"));
+    settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile "${pkgs.oh-my-posh}/share/oh-my-posh/themes/rudolfs-dark.omp.json"));
   };
 
   programs.kitty = {
     enable = true;
-    theme = "Hardcore";
+    # theme = "Hardcore";
+    theme = "Cyberpunk Neon";
     extraConfig = 
       ''
+        window_padding_width 10
         term xterm-256color
       '';
   };
@@ -372,7 +377,6 @@
 
       windowrulev2 = [
         "opacity 0.8 0.8, class:^(kitty)$"
-        "opacity 0.85 0.85, class:^(Code)$"
       ];
 
       "$mod" = "SUPER";
@@ -478,7 +482,7 @@
           rounding = 5
           blur {
               enabled = true
-              size = 5
+              size = 4
               passes = 3
               new_optimizations = on
               ignore_opacity = off
