@@ -99,6 +99,48 @@
     };
   };
 
+  programs.wlogout = {
+    enable = true;
+    layout = [
+      {
+        label = "shutdown";
+        action = "sleep 1; systemctl poweroff";
+        text = "Shutdown";
+        keybind = "s";
+      }
+      {
+        "label" = "reboot";
+        "action" = "sleep 1; systemctl reboot";
+        "text" = "Reboot";
+        "keybind" = "r";
+      }
+      {
+        "label" = "logout";
+        "action" = "sleep 1; hyprctl dispatch exit";
+        "text" = "Exit";
+        "keybind" = "e";
+      }
+      {
+        "label" = "suspend";
+        "action" = "sleep 1; systemctl suspend";
+        "text" = "Suspend";
+        "keybind" = "u";
+      }
+      {
+        "label" = "lock";
+        "action" = "sleep 1; hyprlock";
+        "text" = "Lock";
+        "keybind" = "l";
+      }
+      {
+        "label" = "hibernate";
+        "action" = "sleep 1; systemctl hibernate";
+        "text" = "Hibernate";
+        "keybind" = "h";
+      }
+    ];
+  };
+
   gtk.iconTheme = ''Bibata-Modern-Ice'';
 
   programs.waybar = {
@@ -110,7 +152,7 @@
         height = 20;
         modules-left = ["hyprland/workspaces"];
         modules-center = ["clock"];
-        modules-right = [ "network" "pulseaudio" "custom/quit" ];
+        modules-right = [ "cpu" "memory" "network" "pulseaudio" "custom/quit" ];
 
         "clock" = {
           format = "{:%a %d.%m %H:%M}";
@@ -138,7 +180,7 @@
         };
 
         "pulseaudio" = {
-          format = "{icon}  {volume}%";
+          format = "{icon} {volume}%";
           format-bluetooth = "{icon}  {volume}%";
           format-muted = " ";
           format-icons = {
@@ -146,7 +188,7 @@
               phone = " ";
               portable = " ";
               car = " ";
-              default = [" " " "];
+              default = [" " "  "];
           };
           scroll-step = 5;
           on-click = "pavucontrol";
@@ -161,6 +203,18 @@
         "custom/quit" = {
           format = "󰿅";
           on-click = "wlogout";
+        };
+
+        "memory" = {
+          format = "   {percentage}%";
+          interval = 30;
+          tooltip = true;
+          tooltip-format = "{used:0.1f}G/{total:0.1f}G";
+        };
+
+        "cpu" = {
+          format = "  {usage}%";
+          interval = 10;
         };
 
       };
@@ -190,6 +244,22 @@
 
         window#waybar {
           background: rgba(0,0,0,0);
+        }
+
+        #memory {
+          padding: 5px 12px 5px 5px;
+          margin: 3px 3px 3px 0px;
+          background: #121212;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+
+        #cpu {
+          padding: 5px 5px 5px 12px;
+          margin: 3px 0px 3px 0px;
+          background: #121212;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
         }
 
         #custom-quit {
@@ -241,7 +311,7 @@
         #network {
           background: #121212; /* Changed background color */
           color: #c5c8c6;
-          margin: 3px 0px 3px 0px;
+          margin: 3px 0px 3px 10px;
           padding: 5px 5px 4px 12px;
           border-top-left-radius: 10px;
           border-bottom-left-radius: 10px;
@@ -290,11 +360,14 @@
         "nm-applet --indicator"
         "hyprctl setcursor Bibata-Modern-Ice 22"
         "thunderbird"
+        "whatsapp-for-linux"
       ];
 
       windowrule = [
         "float, nm-connection-editor|blueman-manager"
         "float, swayimg|Viewnior|pavucontrol"
+        "workspace 5, ^(.*thunderbird.*)$"
+        "workspace 5, ^(.*whatsapp.*)$"
       ];
 
       windowrulev2 = [
@@ -380,7 +453,7 @@
         general {
           gaps_in = 6
           gaps_out = 8
-          border_size = 2
+          border_size = 1
           layout = dwindle
           resize_on_border = true
         }

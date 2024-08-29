@@ -155,7 +155,7 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     google-chrome  obsidian bitwarden-desktop
-    bambu-studio solaar thunderbird
+    bambu-studio solaar thunderbird whatsapp-for-linux
 
     # DEV
     sqlitebrowser vscode git nodejs_22 yarn direnv
