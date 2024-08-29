@@ -401,7 +401,7 @@
         "$mod,E,exec,emopicker9000"
         "$mod SHIFT,S,exec,screenshootin"
         "$mod,Q,killactive,"
-        "$mod SHIFT,I,togglesplit,"
+        "$mod SHIFT,i,togglesplit,"
         "$mod,F,fullscreen,"
         "$mod SHIFT,F,togglefloating,"
         "$mod SHIFT,C,exit,"
@@ -451,6 +451,7 @@
       binde = [
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ];
+
     };
     extraConfig = 
       ''
@@ -460,6 +461,10 @@
           border_size = 1
           layout = dwindle
           resize_on_border = true
+        }
+
+        dwindle {
+          smart_split = true
         }
 
 
