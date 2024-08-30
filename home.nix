@@ -287,7 +287,7 @@
           padding: 5px 5px 5px 12px;
           margin: 3px 0px 3px 0px;
           background: @bg-color;
-          border-top-left-radius: 110px;
+          border-top-left-radius: 10px;
           border-bottom-left-radius: 10px;
         }
 
@@ -392,7 +392,7 @@
         "whatsapp-for-linux"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
-
+        "systemctl --user start plasma-polkit-agent"
       ];
 
       windowrule = [
@@ -495,6 +495,10 @@
           border_size = 1
           layout = dwindle
           resize_on_border = true
+        }
+
+        dwindle {
+
         }
 
 

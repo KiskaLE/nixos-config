@@ -61,8 +61,6 @@
   # Enable Hyprland
   programs.hyprland.enable = true;
 
-  services.gnome.gnome-keyring.enable = true;
-
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
@@ -158,6 +156,8 @@
     bambu-studio solaar thunderbird whatsapp-for-linux
     gnome.gnome-calendar wl-clipboard cliphist
 
+    wireguard-tools
+
     # DEV
     sqlitebrowser vscode git nodejs_22 yarn direnv
 
@@ -167,7 +167,8 @@
     # Hyprland
     rofi-wayland hyprlock waybar swww pamixer swaynotificationcenter cinnamon.nemo
     gvfs pulseaudio unzip unrar networkmanagerapplet pavucontrol bibata-cursors
-    cinnamon.nemo-fileroller wlogout xdg-desktop-portal-gtk lxqt.lxqt-policykit
+    cinnamon.nemo-fileroller wlogout xdg-desktop-portal-gtk
+    kdePackages.polkit-kde-agent-1
 
 
   ];
