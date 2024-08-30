@@ -157,15 +157,16 @@
         height = 20;
         modules-left = ["hyprland/workspaces"];
         modules-center = ["clock"];
-        modules-right = [ "cpu" "memory" "network" "pulseaudio" "custom/quit" ];
+        modules-right = [ "cpu" "memory" "tray" "pulseaudio" "custom/quit" ];
 
         "clock" = {
-          format = "{:%a %d.%m %H:%M}";
+          format = "{:%a, %d.%m, %H:%M}";
           on-click = "gnome-calendar";
         };
 
         "hyprland/workspaces" = {
           format = "{name}";
+          separate-outputs = true;
           format-icons = {
             default = " ";
             active = " ";
@@ -207,7 +208,7 @@
         };
 
         "custom/quit" = {
-          format = "󰿅";
+          format = "";
           on-click = "wlogout";
         };
 
@@ -223,20 +224,42 @@
           interval = 10;
         };
 
+        "tray" = {
+          icon-size = 21;
+          spacing = 10;
+        };
+
       };
     };
     style = 
       ''
+        @define-color bg-color #121212;
+
         * {
           font-size: 13px;
           font-family: "Terminus (TTF)";
         }
 
         #workspaces {
-          margin: 3px 3px;
+          margin: 3px 10px 3px 3px;
           padding: 0px 5px;
-          background: #121212;
+          background: @bg-color;
           border-radius: 10px;
+        }
+
+        #tray {
+          margin: 3px 0px 3px 10px;
+          padding: 0px 5px;
+          background: @bg-color;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
+
+        #tray menu {
+          background: @bg-color;
+          padding: 4px;
+          border-radius: 10px;
+          border: unset;
         }
 
         #workspaces button {
@@ -255,7 +278,7 @@
         #memory {
           padding: 5px 12px 5px 5px;
           margin: 3px 3px 3px 0px;
-          background: #121212;
+          background: @bg-color;
           border-top-right-radius: 10px;
           border-bottom-right-radius: 10px;
         }
@@ -263,8 +286,8 @@
         #cpu {
           padding: 5px 5px 5px 12px;
           margin: 3px 0px 3px 0px;
-          background: #121212;
-          border-top-left-radius: 10px;
+          background: @bg-color;
+          border-top-left-radius: 110px;
           border-bottom-left-radius: 10px;
         }
 
@@ -284,12 +307,12 @@
           margin: 3px 0px 3px 3px;
           padding: 5px 12px;
           color: #c5c8c6; /* Ensured text color consistency */
-          background: #121212; /* Changed background color */
+          background: @bg-color; /* Changed background color */
           border-radius: 10px;
         }
 
         #custom-keyboard {
-          background: #121212; /* Changed background color */
+          background: @bg-color; /* Changed background color */
           color: #c5c8c6;
           padding: 5px 5px 5px 7px;
           margin: 3px 0px 3px 3px;
@@ -301,21 +324,21 @@
           margin: 3px;
           padding: 5px 7px 5px 7px;
           border-radius: 10px;
-          background: #121212; /* Changed background color */
+          background: @bg-color; /* Changed background color */
           color: #c5c8c6;
         }
 
         #pulseaudio {
           margin: 3px 0px 3px 0px;
           padding: 5px 7px 5px 5px;
-          background: #121212; /* Changed background color */
+          background: @bg-color; /* Changed background color */
           border-top-right-radius: 0px;
           border-bottom-right-radius: 0px;
           color: #c5c8c6;
         }
 
         #network {
-          background: #121212; /* Changed background color */
+          background: @bg-color; /* Changed background color */
           color: #c5c8c6;
           margin: 3px 0px 3px 10px;
           padding: 5px 5px 4px 12px;
@@ -472,10 +495,6 @@
           border_size = 1
           layout = dwindle
           resize_on_border = true
-        }
-
-        dwindle {
-          smart_split = true
         }
 
 
