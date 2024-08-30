@@ -156,17 +156,18 @@
   environment.systemPackages = with pkgs; [
     google-chrome  obsidian bitwarden-desktop
     bambu-studio solaar thunderbird whatsapp-for-linux
+    gnome.gnome-calendar wl-clipboard cliphist
 
     # DEV
     sqlitebrowser vscode git nodejs_22 yarn direnv
 
     # Shell
-    lf curl oh-my-posh kitty neofetch
+    lf curl oh-my-posh kitty neofetch calcure
 
     # Hyprland
     rofi-wayland hyprlock waybar swww pamixer swaynotificationcenter cinnamon.nemo
-    gvfs pulseaudio unzip unrar networkmanagerapplet pavucontrol bibata-cursors gnome.gnome-keyring
-    gnome.seahorse cinnamon.nemo-fileroller wlogout xdg-desktop-portal-gtk
+    gvfs pulseaudio unzip unrar networkmanagerapplet pavucontrol bibata-cursors
+    cinnamon.nemo-fileroller wlogout xdg-desktop-portal-gtk lxqt.lxqt-policykit
 
 
   ];

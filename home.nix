@@ -161,6 +161,7 @@
 
         "clock" = {
           format = "{:%a %d.%m %H:%M}";
+          on-click = "gnome-calendar";
         };
 
         "hyprland/workspaces" = {
@@ -366,6 +367,9 @@
         "hyprctl setcursor Bibata-Modern-Ice 22"
         "thunderbird"
         "whatsapp-for-linux"
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
+
       ];
 
       windowrule = [
@@ -377,6 +381,12 @@
 
       windowrulev2 = [
         "opacity 0.8 0.8, class:^(kitty)$"
+        "opacity 0.9 0.9, class:^(code-url-handler)$"
+        "opacity 0.95 0.95, class:^(google-chrome)$"
+        "opacity 0.9 0.9, class:^(whatsapp-for-linux)$"
+        "opacity 0.9 0.9, class:^(thunderbird)$"
+        "opacity 0.9 0.7, class:^(org.gnome.Calendar)$"
+        "float, class:^(org.gnome.Calendar)$"
       ];
 
       "$mod" = "SUPER";
@@ -414,6 +424,7 @@
         "$mod SHIFT,k,movewindow,u"
         "$mod SHIFT,j,movewindow,d"
         "$mod,m,exec,wlogout"
+        "bind = SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         # Workspaces
         "$mod,code:10,workspace,1"
         "$mod,code:11,workspace,2"
