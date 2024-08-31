@@ -154,13 +154,14 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 20;
+        margin = "7";
+        reload_style_on_change = true;
         modules-left = ["hyprland/workspaces"];
         modules-center = ["clock"];
-        modules-right = [ "cpu" "memory" "tray" "pulseaudio" "custom/quit" ];
+        modules-right = [ "tray" "cpu" "memory" "pulseaudio" "custom/quit" ];
 
         "clock" = {
-          format = "{:%a, %d.%m, %H:%M}";
+          format = "{:%H:%M}";
           on-click = "gnome-calendar";
         };
 
@@ -226,39 +227,36 @@
 
         "tray" = {
           icon-size = 21;
-          spacing = 10;
+          spacing = 5;
         };
 
       };
     };
     style = 
       ''
-        @define-color bg-color #121212;
+        @define-color bg-color rgba(9,21,29, 0.40);
 
         * {
           font-size: 13px;
           font-family: "Terminus (TTF)";
         }
 
-        #workspaces {
-          margin: 3px 10px 3px 3px;
-          padding: 0px 5px;
+        window#waybar {
           background: @bg-color;
-          border-radius: 10px;
+          border-radius: 2px;
         }
 
-        #tray {
-          margin: 3px 0px 3px 10px;
+        #workspaces {
           padding: 0px 5px;
-          background: @bg-color;
-          border-top-left-radius: 10px;
-          border-bottom-left-radius: 10px;
+          border-radius: 2px;
+        }
+
+        #workspaces button {
+          padding: 0px 5px;
         }
 
         #tray menu {
-          background: @bg-color;
-          padding: 4px;
-          border-radius: 10px;
+          padding: 2px;
           border: unset;
         }
 
@@ -269,81 +267,48 @@
         #workspaces button.active {
           color: #F00;
         }
-      
-
-        window#waybar {
-          background: rgba(0,0,0,0);
-        }
 
         #memory {
           padding: 5px 12px 5px 5px;
-          margin: 3px 3px 3px 0px;
-          background: @bg-color;
-          border-top-right-radius: 10px;
-          border-bottom-right-radius: 10px;
+          border-top-right-radius: 2px;
+          border-bottom-right-radius: 2px;
         }
 
         #cpu {
           padding: 5px 5px 5px 12px;
-          margin: 3px 0px 3px 0px;
-          background: @bg-color;
-          border-top-left-radius: 10px;
-          border-bottom-left-radius: 10px;
+          border-top-left-radius: 2px;
+          border-bottom-left-radius: 2px;
         }
 
         #custom-quit {
-          margin: 3px 3px 3px 0px;
-          padding: 5px 12px 5px 10px;
-          border-top-right-radius: 10px;
-          border-bottom-right-radius: 10px;
-          border-right: 2px solid rgb(145.63, 32.03, 36.82); /* Changed border color */
-          border-top: 2px solid rgb(145.63, 32.03, 36.82); /* Changed border color */
-          border-bottom: 2px solid rgb(145.63, 32.03, 36.82); /* Changed border color */
-          background: rgb(145.63, 32.03, 36.82); /* Kept red background */
+          padding: 5px 12px 5px 8px;
           color: #FFF;
         }
 
         #clock {
-          margin: 3px 0px 3px 3px;
           padding: 5px 12px;
           color: #c5c8c6; /* Ensured text color consistency */
-          background: @bg-color; /* Changed background color */
-          border-radius: 10px;
-        }
-
-        #custom-keyboard {
-          background: @bg-color; /* Changed background color */
-          color: #c5c8c6;
-          padding: 5px 5px 5px 7px;
-          margin: 3px 0px 3px 3px;
-          border-top-left-radius: 10px;
-          border-bottom-left-radius: 10px;
+          border-radius: 2px;
         }
 
         #custom-media {
-          margin: 3px;
-          padding: 5px 7px 5px 7px;
-          border-radius: 10px;
-          background: @bg-color; /* Changed background color */
+          padding: 5px;
+          border-radius: 2px;
           color: #c5c8c6;
         }
 
         #pulseaudio {
-          margin: 3px 0px 3px 0px;
-          padding: 5px 7px 5px 5px;
-          background: @bg-color; /* Changed background color */
+          padding: 5px;
           border-top-right-radius: 0px;
           border-bottom-right-radius: 0px;
           color: #c5c8c6;
         }
 
         #network {
-          background: @bg-color; /* Changed background color */
           color: #c5c8c6;
-          margin: 3px 0px 3px 10px;
           padding: 5px 5px 4px 12px;
-          border-top-left-radius: 10px;
-          border-bottom-left-radius: 10px;
+          border-top-left-radius: 2px;
+          border-bottom-left-radius: 2px;
         }
       '';
   };
@@ -491,7 +456,7 @@
       ''
         general {
           gaps_in = 6
-          gaps_out = 8
+          gaps_out = 7
           border_size = 1
           layout = dwindle
           resize_on_border = true
@@ -518,7 +483,7 @@
         }
 
         decoration {
-          rounding = 5
+          rounding = 2
           blur {
               enabled = true
               size = 4
