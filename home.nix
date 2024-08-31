@@ -22,7 +22,6 @@
     enable = true;
     bashrcExtra = ''
       eval "$(direnv hook bash)"
-      neofetch
     '';
     shellAliases = {
       ll = "ls -l"; ".." = "cd .."; 
