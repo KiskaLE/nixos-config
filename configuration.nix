@@ -155,8 +155,7 @@
     google-chrome  obsidian bitwarden-desktop
     bambu-studio solaar thunderbird whatsapp-for-linux
     gnome.gnome-calendar wl-clipboard cliphist
-
-    wireguard-tools
+    monitor
 
     # DEV
     sqlitebrowser vscode git nodejs_22 yarn direnv
