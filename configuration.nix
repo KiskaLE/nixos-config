@@ -156,6 +156,13 @@
     bambu-studio solaar thunderbird whatsapp-for-linux
     gnome.gnome-calendar wl-clipboard cliphist
     monitor
+    lutris
+    (lutris.override {
+      extraPkgs = pkgs: [
+        wineWowPackages.stable
+        winetricks
+      ];
+    })
 
     # DEV
     sqlitebrowser vscode git nodejs_22 yarn direnv

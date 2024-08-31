@@ -456,15 +456,21 @@
         general {
           gaps_in = 6
           gaps_out = 7
-          border_size = 1
+          border_size = 2
           layout = dwindle
           resize_on_border = true
+          col.active_border = rgb(#4ed1f5)
         }
 
         dwindle {
 
         }
 
+        misc {
+          initial_workspace_tracking = 0
+          mouse_move_enables_dpms = true
+          key_press_enables_dpms = false
+        }
 
         animations {
           enabled = yes
