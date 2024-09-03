@@ -11,12 +11,11 @@
   imports =
     [ # Include the results of the hardware scan.
       # Hyprland
-      ./config/hyprland.nix
       ./config/hyprlock.nix
       ./config/wlogout.nix
       ./config/rofi.nix
       ./config/waybar.nix
-
+      ./config/hyprland.nix
       # All
     ];
 
