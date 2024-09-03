@@ -4,6 +4,6 @@ pushd /home/nixos/nixos
 
 echo "NixOS Rebuilding..."
 
-sudo nixos-rebuild switch --flake ~/nixos#default
+sudo nixos-rebuild switch --flake ~/nixos#default --impure
 
 popd
