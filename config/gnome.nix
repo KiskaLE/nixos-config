@@ -35,5 +35,9 @@
             enable-animations = true;
             enable-hot-corners = false;
         };
+
+        "org/gnome/settings-daemon/plugins/power" = {
+            sleep-inactive-ac-timeout = 900;
+        };
     };
 }
