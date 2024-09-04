@@ -15,8 +15,10 @@
       ./config/wlogout.nix
       ./config/rofi.nix
       ./config/waybar.nix
-      ./config/hyprland.nix
-      # All
+      #./config/hyprland.nix
+      
+      # Gnome
+      ./config/gnome.nix
     ];
 
   xsession.enable = true;

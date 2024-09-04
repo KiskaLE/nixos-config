@@ -70,10 +70,13 @@
       variant = "";
     };
 
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+
   };
 
   # Enable the KDE Plasma Desktop Environment.
-    services.displayManager.sddm.enable = true;
+    # services.displayManager.sddm.enable = true;
     # services.desktopManager.plasma6.enable = true;
 
   # Configure console keymap
