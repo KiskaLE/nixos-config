@@ -1,6 +1,14 @@
 { config, pkgs, inputs, ... }:
 
 {
+    home.packages = with pkgs; [
+      # Hyprland
+      rofi-wayland hyprlock waybar swww pamixer swaynotificationcenter cinnamon.nemo
+      gvfs pulseaudio unzip unrar networkmanagerapplet pavucontrol
+      cinnamon.nemo-fileroller wlogout xdg-desktop-portal-gtk
+      kdePackages.polkit-kde-agent-1
+    ];
+
     wayland.windowManager.hyprland = {
     enable = true;
     settings = {

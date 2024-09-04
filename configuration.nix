@@ -155,7 +155,7 @@
   environment.systemPackages = with pkgs; [
     google-chrome  obsidian bitwarden-desktop
     bambu-studio solaar thunderbird whatsapp-for-linux
-    gnome.gnome-calendar wl-clipboard cliphist
+    gnome.gnome-calendar wl-clipboard cliphist bibata-cursors
     monitor
     lutris
     (lutris.override {
@@ -170,12 +170,6 @@
 
     # Shell
     lf curl oh-my-posh kitty neofetch calcure
-
-    # Hyprland
-    rofi-wayland hyprlock waybar swww pamixer swaynotificationcenter cinnamon.nemo
-    gvfs pulseaudio unzip unrar networkmanagerapplet pavucontrol bibata-cursors
-    cinnamon.nemo-fileroller wlogout xdg-desktop-portal-gtk
-    kdePackages.polkit-kde-agent-1
 
 
   ];
