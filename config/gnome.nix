@@ -5,7 +5,11 @@
         dconf2nix
         gnome.dconf-editor
 
+        # Extensions
         gnomeExtensions.dash-to-dock
+
+        # Shell themes
+        flat-remix-gnome
 
     ];
 
@@ -30,8 +34,8 @@
 
         "org/gnome/desktop/interface" = {
             color-scheme = "prefer-dark";
-            cursor-size = 24;
-            cursor-theme = "bibata-cursors";
+            cursor-size = 22;
+            cursor-theme = "Bibata-Modern-Ice";
             enable-animations = true;
             enable-hot-corners = false;
         };
@@ -42,7 +46,10 @@
 
         "org/gnome/shell" = {
             allow-extension-installation = true;
-            enabled-extensions = ["dash-to-dock@micxgx.gmail.com"];
+            enabled-extensions = [
+                "dash-to-dock@micxgx.gmail.com"
+                "user-theme@gnome-shell-extensions.gcampax.github.com"
+            ];
         };
 
         # Extensions
@@ -63,7 +70,7 @@
         };
 
         "org/gnome/shell/extensions/user-theme" = {
-            #name = "";
+            name = "Flat-Remix-Teal-Darkest-fullPanel";
         };
 
         # Virt manager
