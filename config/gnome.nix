@@ -65,5 +65,11 @@
         "org/gnome/shell/extensions/user-theme" = {
             #name = "";
         };
+
+        # Virt manager
+        "org/virt-manager/virt-manager/connections" = {
+            autoconnect = ["qemu:///system"];
+            uris = ["qemu:///system"];
+        };
     };
 }
