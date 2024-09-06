@@ -177,7 +177,7 @@
     })
 
     # DEV
-    sqlitebrowser vscode git nodejs_22 yarn direnv
+    sqlitebrowser vscode git nodejs_22 yarn direnv remmina
 
     # Shell
     lf curl oh-my-posh kitty neofetch calcure
