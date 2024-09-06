@@ -7,6 +7,7 @@
 
         # Extensions
         gnomeExtensions.dash-to-dock
+        gnomeExtensions.clipboard-indicator
 
         # Shell themes
         flat-remix-gnome
@@ -49,6 +50,7 @@
             enabled-extensions = [
                 "dash-to-dock@micxgx.gmail.com"
                 "user-theme@gnome-shell-extensions.gcampax.github.com"
+                "clipboard-indicator@tudmotu.com"
             ];
         };
 
