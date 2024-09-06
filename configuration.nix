@@ -167,7 +167,7 @@
     google-chrome  obsidian bitwarden-desktop
     bambu-studio solaar thunderbird whatsapp-for-linux
     gnome.gnome-calendar wl-clipboard cliphist bibata-cursors
-    monitor
+    monitor vlc
     lutris
     (lutris.override {
       extraPkgs = pkgs: [
