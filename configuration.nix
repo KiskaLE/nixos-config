@@ -168,13 +168,7 @@
     bambu-studio solaar thunderbird whatsapp-for-linux
     gnome.gnome-calendar wl-clipboard cliphist bibata-cursors
     monitor vlc
-    lutris
-    (lutris.override {
-      extraPkgs = pkgs: [
-        wineWowPackages.stable
-        winetricks
-      ];
-    })
+    heroic
 
     # DEV
     sqlitebrowser vscode git nodejs_22 yarn direnv remmina
