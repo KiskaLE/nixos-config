@@ -140,6 +140,12 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Enalble Ollama
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm";
+  };
+
   # Enable flatpak
   services.flatpak.enable = true;
 
@@ -169,6 +175,8 @@
     gnome.gnome-calendar wl-clipboard cliphist bibata-cursors
     monitor vlc
     heroic
+
+    qbittorrent
 
     # DEV
     sqlitebrowser vscode git nodejs_22 yarn direnv remmina
