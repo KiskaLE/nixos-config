@@ -4,6 +4,7 @@
     home.packages = with pkgs; [
         dconf2nix
         gnome.dconf-editor
+        gnome.gnome-tweaks
 
         # Extensions
         gnomeExtensions.dash-to-dock
