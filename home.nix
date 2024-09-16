@@ -55,6 +55,7 @@
     shellAliases = {
       ll = "ls -l"; ".." = "cd .."; 
       fr = "sh /home/nixos/nixos/scripts/rebuild.sh";
+      fu = "sh /home/nixos/nixos/scripts/update.sh";
       cl = "clear";
       };
   };
