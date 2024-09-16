@@ -1,7 +1,9 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p bash git
 pushd /home/nixos/nixos
 
-echo "NixOS Updating..."
+echo "NixOS Rebuilding..."
 
-sudo nix flake update
+sudo nixos-rebuild switch --recreate-lock-file --flake ~/nixos#default --impure
 
 popd
