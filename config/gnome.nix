@@ -9,6 +9,7 @@
         # Extensions
         gnomeExtensions.dash-to-dock
         gnomeExtensions.clipboard-indicator
+        gnomeExtensions.blur-my-shell
 
         # Shell themes
         flat-remix-gnome
@@ -52,6 +53,7 @@
                 "dash-to-dock@micxgx.gmail.com"
                 "user-theme@gnome-shell-extensions.gcampax.github.com"
                 "clipboard-indicator@tudmotu.com"
+                "blur-my-shell@aunetx"
             ];
         };
 
