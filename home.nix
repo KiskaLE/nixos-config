@@ -62,13 +62,13 @@
 
   programs.oh-my-posh = {
     enable = true;
-    settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile "${pkgs.oh-my-posh}/share/oh-my-posh/themes/rudolfs-dark.omp.json"));
+    settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile "${pkgs.oh-my-posh}/share/oh-my-posh/themes/amro.omp.json"));
   };
 
   programs.kitty = {
     enable = true;
     # theme = "Hardcore";
-    theme = "Cyberpunk Neon";
+    theme = "Adwaita darker";
     extraConfig = 
       ''
         window_padding_width 10
