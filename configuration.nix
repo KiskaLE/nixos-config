@@ -175,7 +175,6 @@
     gnome.gnome-calendar wl-clipboard cliphist bibata-cursors
     monitor vlc
     heroic
-    picom
 
     qbittorrent
 

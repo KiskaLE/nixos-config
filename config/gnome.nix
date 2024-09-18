@@ -54,6 +54,7 @@
                 "user-theme@gnome-shell-extensions.gcampax.github.com"
                 "clipboard-indicator@tudmotu.com"
                 "blur-my-shell@aunetx"
+                "tilingshell@ferrarodomenico.com"
             ];
         };
 
