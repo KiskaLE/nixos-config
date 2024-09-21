@@ -174,7 +174,9 @@
     bambu-studio solaar thunderbird whatsapp-for-linux
     gnome.gnome-calendar wl-clipboard cliphist bibata-cursors
     monitor vlc
+    freeoffice
     heroic
+    bottles
 
     qbittorrent
 
