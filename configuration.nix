@@ -86,7 +86,21 @@
   services.printing.enable = true;
 
   # Enable docker
-  virtualisation.docker.enable = true;
+  # virtualisation.docker.enable = true;
+
+  # Enable common container config files in /etc/containers
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
 
   # Enable logitech wireless
   hardware.logitech.wireless.enable = true;
@@ -177,15 +191,21 @@
     freeoffice
     heroic
     bottles
+    nextcloud-client
 
     qbittorrent
 
     # DEV
-    sqlitebrowser vscode git nodejs_22 yarn direnv remmina
+    sqlitebrowser vscode git nodejs_22 yarn direnv remmina powershell
 
     # Shell
     lf curl oh-my-posh kitty neofetch calcure
 
+    podman
+    dive # look into docker image layers
+    podman-tui # status of containers in the terminal
+    # docker-compose # start group of containers for dev
+    podman-compose # start group of containers for dev
 
   ];
 
