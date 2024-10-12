@@ -186,7 +186,7 @@
   environment.systemPackages = with pkgs; [
     google-chrome  obsidian bitwarden-desktop
     bambu-studio solaar thunderbird whatsapp-for-linux
-    gnome.gnome-calendar wl-clipboard cliphist bibata-cursors
+    wl-clipboard cliphist bibata-cursors
     monitor vlc
     freeoffice
     heroic
@@ -199,7 +199,7 @@
     sqlitebrowser vscode git nodejs_22 yarn direnv remmina powershell
 
     # Shell
-    lf curl oh-my-posh kitty neofetch calcure
+    lf curl oh-my-posh kitty neofetch
 
     podman
     dive # look into docker image layers
@@ -234,6 +234,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 
 }
